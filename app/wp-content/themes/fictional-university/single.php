@@ -1,3 +1,5 @@
+<?php  get_header();?>
+
 <?php
 
 while(have_posts( )){
@@ -6,4 +8,6 @@ while(have_posts( )){
     <p><?php the_content(); ?></p>
 
 <?php }
+get_footer();
+
 ?>
