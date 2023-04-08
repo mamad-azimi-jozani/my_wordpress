@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  wordpress:
+    container_name: 'wordpress'
+    image: wordpress
+    environment:
+      WORDPRESS_DB_HOST: 'db:3306'
+      WORDPRESS_DB_USER: 'mohammad'
+      WORDPRESS_DB_PASSWORD: '0011605375nA'
+      WORDPRESS_DB_DATABASE: 'wordpress'
+
+    volumes:
+      - ./app:/var/www/html
+
+    depends_on:
+      - db
+
+    ports:
+      - '81:80'
+
+
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: '0011605375nA'
+      MYSQL_DATABASE: 'wordpress'
+      MYSQL_USER: 'mohammad'
+      MYSQL_PASSWORD: '0011605375nA'
+
+    volumes:
+      - my-db:/var/lib/mysql
+
+volumes:
+  my-db:
